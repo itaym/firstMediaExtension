@@ -1,6 +1,20 @@
 {
-  "name": "Getting Started Example",
+  "name": "First Media Troll Extension",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "manifest_version": 2
+  "description": "Extract Our Data From FB",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab",
+    "webRequest",
+    "https://*/*"
+  ],
+  "background": [
+    {
+      "scripts": ["js/contentScript.js"],
+      "persistent": false
+    }
+  ],
+  "web_accessible_resources": [
+    "js/XMLHttpRequest.js"
+  ]
 }
