@@ -69,7 +69,6 @@ function download(data) {
                     if ( this.responseType != 'blob' && this.responseText) {
                         // responseText is string or null
                         try {
-                            window._474_extra_oids = getDataFromString('extra_oids=', decodeURIComponent(myUrl));
                             // here you get RESPONSE TEXT (BODY), in JSON format, so you can use JSON.parse
                             let arr = this.responseText;
 
@@ -81,6 +80,8 @@ function download(data) {
                             // console.log(JSON.parse(arr));
 
                             if (window._474_recording && theURL && myUrl.indexOf(theURL) === 0) {
+
+                                window._474_extra_oids = getDataFromString('extra_oids=["', decodeURIComponent(myUrl));
                                 try
                                 {
                                     let json = JSON.parse(this.responseText);
